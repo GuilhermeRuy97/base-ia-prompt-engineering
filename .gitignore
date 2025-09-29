@@ -30,4 +30,4 @@ htmlcov/
 *.orig
 *.rej
 *.ipynb_checkpoints/
-
+repo_langchain_1.0/
