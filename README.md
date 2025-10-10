@@ -4,7 +4,7 @@ Este repositório contém os exercícios práticos e exemplos da disciplina de P
 
 ## Estrutura dos capítulos
 
-### 📁 1-tipos-de-prompts
+### 1-tipos-de-prompts
 Fundamentos de prompt engineering com 9 técnicas essenciais:
 - Role-based prompting
 - Zero-shot e Few-shot learning
@@ -15,28 +15,35 @@ Fundamentos de prompt engineering com 9 técnicas essenciais:
 - Prompt chaining
 - Least-to-most decomposition
 
-### 📁 4-prompts-e-workflow-de-agentes
+### 4-prompts-e-workflow-de-agentes
 Implementações de workflows baseados em agentes para:
 - Análise arquitetural de código
 - Auditoria de dependências
 - Orquestração de comandos entre agentes
 
-### 📁 5-gerenciamento-e-versionamento-de-prompts
+### 5-gerenciamento-e-versionamento-de-prompts
 Sistema avançado de gerenciamento de prompts com:
 - Versionamento local usando YAML
 - Integração com LangSmith para colaboração
 - Agentes especializados para code review e criação de PRs
 - Testes automatizados com pytest
 
-### 📁 6-prompt-enriquecido
+### 6-prompt-enriquecido
 Técnicas avançadas de enriquecimento de prompts:
 - Query expansion
 - ITER-RETGEN (Iterative Retrieval Generation)
 - Enriquecimento contextual de queries
 
+### 7-evaluation
+Avaliação sistemática de prompts e LLMs:
+- Evaluators básicos (format, criteria, score, correctness, custom, embeddings)
+- Métricas de classificação (Precision, Recall, F1)
+- Comparação pairwise de prompts
+- Integração com LangSmith e Langfuse
+
 ## Configuração do Ambiente
 
-**Importante:** Cada pasta do curso possui seu próprio ambiente virtual e dependências específicas.
+**Importante:** Cada pasta do curso é auto-contida, possuindo seu próprio ambiente virtual, arquivo de dependências (requirements.txt) e configuração de variáveis de ambiente (.env).
 
 ### 1. Criar e Ativar Ambiente Virtual
 
@@ -74,7 +81,8 @@ cp .env.example .env
 
 As dependências variam entre os capítulos:
 
-- **Capítulos 1 e 4:** LangChain 0.3.x (versão estável)
+- **Capítulos 1 e 7:** LangChain 0.3.x (versão estável)
 - **Capítulos 5 e 6:** LangChain 1.0.0a5 com LangGraph para recursos avançados
+- **Capítulo 7:** LangSmith e Langfuse para evaluation
 
 Para detalhes específicos de cada capítulo, consulte o arquivo `requirements.txt` correspondente.
