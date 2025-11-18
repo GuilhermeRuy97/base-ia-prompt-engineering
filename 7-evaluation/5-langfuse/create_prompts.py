@@ -8,6 +8,7 @@ import os
 PROMPT_A_NAME = "prompt_doc_a"
 PROMPT_B_NAME = "prompt_doc_b"
 PROMPT_JUDGE_NAME = "llm_judge_pairwise"
+PROMPT_CODE_ANALYZER_NAME = "1-correctness-langfuse"
 
 langfuse = Langfuse()
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -57,6 +58,7 @@ if __name__ == "__main__":
     # Load prompts from YAML files
     prompt_a_messages = load_yaml_prompt("prompt_doc_a.yaml")
     prompt_b_messages = load_yaml_prompt("prompt_doc_b.yaml")
+    prompt_code_analyzer_messages = load_yaml_prompt("1-correctness-langfuse.yaml")
 
     # Load judge prompt (text format, not chat)
     with open(os.path.join(script_dir, "prompts/llm_judge_pairwise.yaml"), "r") as f:
@@ -95,10 +97,19 @@ if __name__ == "__main__":
     except Exception as e:
         print(f"✗ Error creating prompt '{PROMPT_JUDGE_NAME}': {str(e)}")
 
+    # Create Code Analyzer Prompt
+    create_chat_prompt(
+        name=PROMPT_CODE_ANALYZER_NAME,
+        messages=prompt_code_analyzer_messages,
+        description="Code Analyzer: Identifies security, performance, and quality issues in Go code",
+        labels=["production", "code-analysis"]
+    )
+
     print("="*60)
     print("Prompts created successfully:")
     print(f"  - {PROMPT_A_NAME}")
     print(f"  - {PROMPT_B_NAME}")
     print(f"  - {PROMPT_JUDGE_NAME}")
+    print(f"  - {PROMPT_CODE_ANALYZER_NAME}")
     print()
     print("Access Langfuse UI to view the created prompts.")

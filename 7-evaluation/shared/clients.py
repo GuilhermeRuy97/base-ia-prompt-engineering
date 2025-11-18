@@ -62,3 +62,18 @@ def get_langfuse_client():
         Langfuse client instance
     """
     return Langfuse()
+
+
+def get_openai_client_langfuse():
+    """
+    Returns OpenAI client with Langfuse tracing.
+
+    Model and temperature are configurable via environment variables:
+    - LLM_MODEL (default: gpt-4o-mini)
+    - LLM_TEMPERATURE (default: 0)
+
+    Returns:
+        OpenAI client wrapped with Langfuse tracing
+    """
+    from langfuse.openai import OpenAI as LangfuseOpenAI
+    return LangfuseOpenAI()
